@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nuvo — Texnika do'koni</title>
+<link rel="stylesheet" href="./steyl.css">
+</head>
+<body>
+ 
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#"><i></i>Nuvo</a>
+    <nav aria-label="Asosiy menyu">
+      <a href="#phones">Telefonlar</a>
+      <a href="#wearables">Aksessuarlar</a>
+      <a href="#home">Aqlli uy</a>
+      <a href="#support">Yordam</a>
+    </nav>
+    <a class="login" href="#">Kirish</a>
+    <button class="cart" id="cart" type="button" aria-label="Savatcha">Savat <span id="count">0</span></button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menyu" aria-expanded="false">Menyu</button>
+  </div>
+</header>
+ 
+<main class="wrap">
+ 
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Nuvo X1 Pro.<br>Yangi avlod kamerasi.</h1>
+      <p>Tungi suratlar yorqin, batareya ikki kun yetadi. Bugun buyurtma bering, kuponingiz hisobingizda.</p>
+      <p class="timer">Sotuv boshlanishiga: <b id="timer">--</b></p>
+      <a class="btn" href="#phones">Xarid qilish</a>
+      <a class="btn ghost" href="#phones">Batafsil</a>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="phone a"></div>
+      <div class="phone b"></div>
+    </div>
+  </div>
+ 
+  <section id="phones">
+    <h2>Yangi mahsulotlar</h2>
+    <div class="grid">
+      <div class="card c1">
+        <h3>Nuvo X1 Pro</h3><p>200 MP kamera</p><button class="add" type="button">Savatga qo'shish</button>
+        <div class="art"><div class="phone" style="position:relative;width:96px;height:150px;border-radius:20px 20px 0 0"></div></div>
+      </div>
+      <div class="card c2" id="wearables">
+        <h3>Nuvo Watch S2</h3><p>Salomatlik va uyqu nazorati</p><button class="add" type="button">Savatga qo'shish</button>
+        <div class="art"><div class="watch"></div></div>
+      </div>
+      <div class="card c3">
+        <h3>Nuvo Buds Air</h3><p>Shovqinni so'ndirish</p><button class="add" type="button">Savatga qo'shish</button>
+        <div class="art"><div class="buds"></div></div>
+      </div>
+      <div class="card c4">
+        <h3>Nuvo Scooter 6</h3><p>45 km masofa</p><button class="add" type="button">Savatga qo'shish</button>
+        <div class="art"><div class="scooter"></div></div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="home">
+    <h2>Aqlli uy</h2>
+    <div class="wide">
+      <div class="banner">
+        <h3>Robot changyutgich 6 Max</h3>
+        <p>Xaritani o'zi tuzadi, gilam va parketni farqlaydi.</p>
+        <a class="btn" href="#">Xarid qilish</a>
+      </div>
+      <div class="banner">
+        <h3>Barcha qurilmalar bitta ilovada</h3>
+        <p>Telefon, mashina va uy texnikasini bitta joydan boshqaring.</p>
+        <a class="btn ghost" style="margin:0" href="#">Ko'proq bilish</a>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="support">
+    <h2>Yordam</h2>
+    <div class="support">
+      <a href="#"><b>Aloqa</b><span>Chat, pochta yoki telefon orqali</span></a>
+      <a href="#"><b>Kafolat</b><span>Mahalliy kafolat shartlari</span></a>
+      <a href="#"><b>Qo'llanmalar</b><span>Qurilma qo'llanmasini yuklab oling</span></a>
+      <a href="#"><b>Savol-javob</b><span>Tez-tez beriladigan savollar</span></a>
+    </div>
+  </section>
+ 
+</main>
+ 
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><h4>Yordam</h4><ul><li>Aloqa</li><li>Kafolat</li><li>Qo'llanmalar</li></ul></div>
+      <div><h4>Kompaniya</h4><ul><li>Biz haqimizda</li><li>Yangiliklar</li><li>Karyera</li></ul></div>
+      <div><h4>Huquqiy</h4><ul><li>Maxfiylik siyosati</li><li>Foydalanish shartlari</li></ul></div>
+    </div>
+    <p class="copy">© 2026 Nuvo. Namuna sahifa.</p>
+  </div>
+</footer>
+ 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
