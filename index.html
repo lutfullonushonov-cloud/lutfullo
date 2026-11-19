@@ -1,107 +1,130 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nuvo — Texnika do'koni</title>
-<link rel="stylesheet" href="./steyl.css">
+<title>FastBite — Tez va mazali buyurtma</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="./steyl.css" rel="stylesheet">
 </head>
 <body>
- 
-<header>
-  <div class="wrap bar">
-    <a class="logo" href="#"><i></i>Nuvo</a>
-    <nav aria-label="Asosiy menyu">
-      <a href="#phones">Telefonlar</a>
-      <a href="#wearables">Aksessuarlar</a>
-      <a href="#home">Aqlli uy</a>
-      <a href="#support">Yordam</a>
-    </nav>
-    <a class="login" href="#">Kirish</a>
-    <button class="cart" id="cart" type="button" aria-label="Savatcha">Savat <span id="count">0</span></button>
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menyu" aria-expanded="false">Menyu</button>
+<div class="bg-anim" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="brand" href="#home"><i class="fa-solid fa-burger"></i> FastBite</a>
+    <button class="navbar-toggler border-0 shadow-none" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Menyu">
+      <i class="fa-solid fa-bars text-white fs-3"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav mx-auto gap-lg-1">
+        <li class="nav-item"><a class="nav-link active" href="#home">Bosh sahifa</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#news">Yangiliklar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Aloqa</a></li>
+      </ul>
+      <button class="cart-btn" data-bs-toggle="offcanvas" data-bs-target="#cartPanel">
+        <i class="fa-solid fa-cart-shopping me-1"></i> Savatcha
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h1>Issiq, tez va <em>mazali</em> fast food</h1>
+        <p class="mt-3">Burger, lavash, shovurma va pitsa — yangi mahsulotlardan tayyorlanadi va 30 daqiqada eshigingizgacha yetkaziladi.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#menu" class="btn btn-fast"><i class="fa-solid fa-bag-shopping me-2"></i>Buyurtma berish</a>
+          <a href="#menu" class="btn btn-line"><i class="fa-solid fa-utensils me-2"></i>Menuni ko‘rish</a>
+        </div>
+        <div class="d-flex gap-4 mt-4 text-secondary fw-bold flex-wrap">
+          <span><i class="fa-solid fa-truck-fast text-warning me-1"></i>Tez yetkazish</span>
+          <span><i class="fa-solid fa-leaf text-primary me-1"></i>Yangi mahsulot</span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <!-- Hero rasmi: o‘zingizning rasmingizni images/hero.png yo‘liga qo‘ying -->
+        <div class="hero-frame">
+          <i class="fa-solid fa-burger ph"></i>
+          <img class="s1" src="./chicken-burgers-index-667b185b5f528.avif" alt="Fast food" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
   </div>
 </header>
- 
-<main class="wrap">
- 
-  <div class="hero">
-    <div class="hero-text">
-      <h1>Nuvo X1 Pro.<br>Yangi avlod kamerasi.</h1>
-      <p>Tungi suratlar yorqin, batareya ikki kun yetadi. Bugun buyurtma bering, kuponingiz hisobingizda.</p>
-      <p class="timer">Sotuv boshlanishiga: <b id="timer">--</b></p>
-      <a class="btn" href="#phones">Xarid qilish</a>
-      <a class="btn ghost" href="#phones">Batafsil</a>
-    </div>
-    <div class="hero-art" aria-hidden="true">
-      <div class="phone a"></div>
-      <div class="phone b"></div>
+
+<!-- MENU -->
+<section id="menu" class="py-5">
+  <div class="container">
+    <h2 class="sec-title">Bizning menu</h2>
+    <div class="filters" id="filters"></div>
+    <div class="row g-4" id="products"></div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news" class="py-5">
+  <div class="container">
+    <h2 class="sec-title mb-4">Yangiliklar</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="news-card"><i class="fa-solid fa-fire"></i><h4 class="mt-2">Yangi “Double Burger”</h4><p class="mb-0">Ikki qavat go‘sht va maxsus sous bilan yangi burger menuda paydo bo‘ldi.</p></div></div>
+      <div class="col-md-4"><div class="news-card"><i class="fa-solid fa-percent"></i><h4 class="mt-2">Hafta oxiri aksiyasi</h4><p class="mb-0">Shanba va yakshanba kunlari barcha pitsalarga 15% chegirma.</p></div></div>
+      <div class="col-md-4"><div class="news-card"><i class="fa-solid fa-gift"></i><h4 class="mt-2">Bepul yetkazish</h4><p class="mb-0">150 000 so‘mdan yuqori buyurtmalarga yetkazib berish bepul.</p></div></div>
     </div>
   </div>
- 
-  <section id="phones">
-    <h2>Yangi mahsulotlar</h2>
-    <div class="grid">
-      <div class="card c1">
-        <h3>Nuvo X1 Pro</h3><p>200 MP kamera</p><button class="add" type="button">Savatga qo'shish</button>
-        <div class="art"><div class="phone" style="position:relative;width:96px;height:150px;border-radius:20px 20px 0 0"></div></div>
-      </div>
-      <div class="card c2" id="wearables">
-        <h3>Nuvo Watch S2</h3><p>Salomatlik va uyqu nazorati</p><button class="add" type="button">Savatga qo'shish</button>
-        <div class="art"><div class="watch"></div></div>
-      </div>
-      <div class="card c3">
-        <h3>Nuvo Buds Air</h3><p>Shovqinni so'ndirish</p><button class="add" type="button">Savatga qo'shish</button>
-        <div class="art"><div class="buds"></div></div>
-      </div>
-      <div class="card c4">
-        <h3>Nuvo Scooter 6</h3><p>45 km masofa</p><button class="add" type="button">Savatga qo'shish</button>
-        <div class="art"><div class="scooter"></div></div>
-      </div>
-    </div>
-  </section>
- 
-  <section id="home">
-    <h2>Aqlli uy</h2>
-    <div class="wide">
-      <div class="banner">
-        <h3>Robot changyutgich 6 Max</h3>
-        <p>Xaritani o'zi tuzadi, gilam va parketni farqlaydi.</p>
-        <a class="btn" href="#">Xarid qilish</a>
-      </div>
-      <div class="banner">
-        <h3>Barcha qurilmalar bitta ilovada</h3>
-        <p>Telefon, mashina va uy texnikasini bitta joydan boshqaring.</p>
-        <a class="btn ghost" style="margin:0" href="#">Ko'proq bilish</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="sec-title mb-4">Aloqa</h2>
+    <div class="contact-box">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h4>Biz bilan bog‘laning</h4>
+          <p class="mb-2"><i class="fa-solid fa-location-dot"></i> Toshkent shahri, Amir Temur ko‘chasi</p>
+          <p class="mb-2"><i class="fa-solid fa-phone"></i> +998 90 123 45 67</p>
+          <p class="mb-2"><i class="fa-brands fa-telegram"></i> @fastbite_uz</p>
+          <p class="mb-0"><i class="fa-solid fa-clock"></i> Har kuni 09:00 – 23:00</p>
+        </div>
+        <div class="col-md-6">
+          <input class="form-control mb-2" placeholder="Ismingiz" aria-label="Ism">
+          <textarea class="form-control mb-2" rows="3" placeholder="Xabaringiz" aria-label="Xabar"></textarea>
+          <button class="btn btn-fast w-100" onclick="toast('Xabaringiz yuborildi')"><i class="fa-solid fa-paper-plane me-2"></i>Yuborish</button>
+        </div>
       </div>
     </div>
-  </section>
- 
-  <section id="support">
-    <h2>Yordam</h2>
-    <div class="support">
-      <a href="#"><b>Aloqa</b><span>Chat, pochta yoki telefon orqali</span></a>
-      <a href="#"><b>Kafolat</b><span>Mahalliy kafolat shartlari</span></a>
-      <a href="#"><b>Qo'llanmalar</b><span>Qurilma qo'llanmasini yuklab oling</span></a>
-      <a href="#"><b>Savol-javob</b><span>Tez-tez beriladigan savollar</span></a>
-    </div>
-  </section>
- 
-</main>
- 
-<footer>
-  <div class="wrap">
-    <div class="cols">
-      <div><h4>Yordam</h4><ul><li>Aloqa</li><li>Kafolat</li><li>Qo'llanmalar</li></ul></div>
-      <div><h4>Kompaniya</h4><ul><li>Biz haqimizda</li><li>Yangiliklar</li><li>Karyera</li></ul></div>
-      <div><h4>Huquqiy</h4><ul><li>Maxfiylik siyosati</li><li>Foydalanish shartlari</li></ul></div>
-    </div>
-    <p class="copy">© 2026 Nuvo. Namuna sahifa.</p>
   </div>
-</footer>
- 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="script.js"></script>
+</section>
+
+<footer class="text-center py-4 mt-4">© 2026 FastBite. Barcha huquqlar himoyalangan.</footer>
+
+<!-- SAVATCHA -->
+<div class="offcanvas offcanvas-end" id="cartPanel" tabindex="-1">
+  <div class="offcanvas-header" style="background:var(--blue);color:#fff">
+    <h5 class="offcanvas-title m-0"><i class="fa-solid fa-cart-shopping me-2"></i>Savatcha</h5>
+    <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Yopish"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartItems" class="flex-grow-1"></div>
+    <div class="border-top pt-3">
+      <div class="d-flex justify-content-between fs-5 fw-bold"><span>Jami:</span><span id="cartTotal" class="price">0 so‘m</span></div>
+      <button class="btn btn-fast w-100 mt-3" onclick="checkout()"><i class="fa-solid fa-circle-check me-2"></i>Buyurtmani rasmiylashtirish</button>
+      <button class="btn btn-outline-danger w-100 mt-2" onclick="clearCart()"><i class="fa-solid fa-trash me-2"></i>Savatchani tozalash</button>
+    </div>
+  </div>
+</div>
+<div class="toast-fast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/bundle/bootstrap.bundle.min.js"></script>
+<script src="./js.js"></script>
 </body>
 </html>
